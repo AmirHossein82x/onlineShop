@@ -5,5 +5,5 @@ from config.apps.catalog.serializers.front import CategorySerializer
 
 
 class CategoryViewSet(ReadOnlyModelViewSet):
-    queryset = Category.objects.all()
+    queryset = Category.objects.public()
     serializer_class = CategorySerializer

@@ -1,6 +1,8 @@
 from django.db import models
 from treebeard.mp_tree import MP_Node
 
+from config.apps.catalog.managers import CategoryQuerySet
+
 
 # Create your models here.
 
@@ -9,6 +11,7 @@ class Category(MP_Node):
     slug = models.SlugField()
     description = models.CharField(max_length=2048, null=True, blank=True)
     is_public = models.BooleanField(default=True)
+    objects = CategoryQuerySet.as_manager()
 
     def __str__(self):
         return self.title
